@@ -1,0 +1,2 @@
+# AutoZFBXiaoYuanFangYiSign
+支付宝校园防疫小程序的自动打卡Java脚本
