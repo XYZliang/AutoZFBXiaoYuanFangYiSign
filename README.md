@@ -28,15 +28,27 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 # 🧀 食用方法
 > 很乐意解决你在使用过程中遇到的问题，但我也没系统学过python，只能尽力帮忙，欢迎 [issues](https://github.com/XYZliang/AutoZFBXiaoYuanFangYiSign/issues)，尽量把整个程序以及产生的log文件全部上传。
 
-1. 修改 `sign.py` 第 4 行 你的学号，部分学校可能用一卡通号等代替。可以到 [https://fxgl.jx.edu.cn/你的高校代码/]( https://fxgl.jx.edu.cn/你的高校代码/)   自己尝试一下，（*你的高校代码* 详见后文 **江西省100所高校代码**）
+1. 修改 `sign.py`第4 行签到模式，0表示单人签到 1表示多人签到
 
-2. 修改第 7 行 学校代码（详见后文 **江西省100所高校代码**）
+2. 如果使用单人签到模式，即第一步signs = 0，则修改 第8 行 的yourID为你的学号。
 
-3. 修改第 10 行 身份类型（0表示学生 1表示教职工）（*暂不支持教职工，部分细节有差异，如果有老师需要可以提交issues我再修改*）
+    否则，如果使用多人签到模式，即第一步signs = 0，则11 行的 IDs，每个学号之间同英文  ,  分隔开，形如以下的模式：
 
-4. 修改第 13 行 是否为毕业班级（0表示是毕业班的学生 1表示不是毕业班的学生）
+    ```python
+    	IDs = '学号1,学号2,学号3,学号4'
+    ```
 
-5. 修改第 20 行 签到模式 （0表示获取前一日的签到定位，1表示使用输入的经纬度）
+    
+
+    *Ps:部分学校可能用一卡通号等代替。可以到 [https://fxgl.jx.edu.cn/你的高校代码/]( https://fxgl.jx.edu.cn/你的高校代码/)   自己尝试一下，（你的高校代码 详见后文 **江西省100所高校代码**）*
+
+3. 修改第15 行 学校代码（详见后文 **江西省100所高校代码**）
+
+4. 修改第18 行 身份类型（0表示学生 1表示教职工）（*暂不支持教职工，部分细节有差异，如果有老师需要可以提交issues我再修改*）
+
+5. 修改第21 行 是否为毕业班级（0表示是毕业班的学生 1表示不是毕业班的学生）
+
+6. 修改第28 行 签到模式 （0表示获取前一日的签到定位，1表示使用输入的经纬度）
 
     > 因为为了使签到位置产生一点点差异，每次签到都会随机偏移一点。
     >
@@ -44,11 +56,11 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
     >
     > 使用输入的经纬度，单人签到推荐，会在你输入的经纬度定位上随机偏移11.1m以内
 
-6. 如果使用输入的经纬度模式，即第五步中的参数 `signType = 1`,则还需要配置24行和26行的经纬度、28行的地址，建议在[*百度拾取坐标系统*](http://api.map.baidu.com/lbsapi/getpoint/index.html)找到自己的位置。经度是较大的那个。
+7. 如果使用输入的经纬度模式，即第五步中的参数 `signType = 1`,则还需要配置32行和34行的经纬度、36行的地址，建议在[*百度拾取坐标系统*](http://api.map.baidu.com/lbsapi/getpoint/index.html)找到自己的位置。经度是较大的那个。
 
-7. 部署到虚拟主机或者本机，然后cd到相关文件夹，运行命令 ` python3 sign.py`  即可
+8. 部署到虚拟主机或者本机，然后cd到相关文件夹，运行命令 ` python3 sign.py`  即可
 
-8. 对于liunx系统，建议使用 `crontab` 定时运行上述命令。Windows可以使用定时任务，macOS也有定时。
+9. 对于liunx系统，建议使用 `crontab` 定时运行上述命令。Windows可以使用定时任务，macOS也有定时。
     > `crontab` 使用方法可以网上查找资料
     ```bash
     # Ubuntu 安装 python3 方法，其它如 CentOS 可以网上搜
@@ -100,17 +112,15 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 
 1. 登录 API
    
-
-[https://fxgl.jx.edu.cn/学校标识码/public/homeQd?loginName=你的学号&loginType=0](https://fxgl.jx.edu.cn/学校标识码/public/homeQd?loginName=你的学号&loginType=0)
-    
-
-
-2. 签到 API
+   [https://fxgl.jx.edu.cn/学校标识码/public/homeQd?loginName=你的学号&loginType=0](https://fxgl.jx.edu.cn/学校标识码/public/homeQd?loginName=你的学号&loginType=0)
+       
    
+2. 签到 API
+
     [https://fxgl.jx.edu.cn/学校标识码/studentQd/saveStu](https://fxgl.jx.edu.cn/学校标识码/studentQd/saveStu    )    
 
     
-    
+
 3. 签到记录页面
 
     [https://fxgl.jx.edu.cn/学校标识码/public/xslby](https://fxgl.jx.edu.cn/学校标识码/public/xslby)
@@ -140,23 +150,35 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 # 🙇‍ 感谢名单
 > 感谢它们对本项目做出的贡献
 - [@ChiuJun](https://github.com/ChiuJun)
+
 - [@PrintNow](https://github.com/PrintNow)
+
 - 某位一直帮助我的大三学长
+
+# 💻测试环境
+
+macOS Big Sur 11.3 BETA
+
+Python 3.9
 
 # 🙋‍♀️ 未来计划
 
 > 可能会有，可能不会有
 
-- [ ] 加入多人签到的完整支持
+- [x] ~~加入多人签到的完整支持~~
 - [ ] 支持通过server酱等进行签到成功/失败通知
 - [ ] 配合GitHub Action达到利用GitHub来做服务器免费进行签到
-- [x] 通过获取上一次的签到记录进行签到，并进行随机偏移
+- [x] ~~通过获取上一次的签到记录进行签到，并进行随机偏移~~
 
 # 🤹‍♂️ 更新记录
 
 - 2021.2.16
 
   初代版本，实现单人签到主要功能
+
+- 2020.2.18
+
+  加入对多人签到的支持，修复部分逻辑，解决大部分警告
 
 # 🏫 江西省100所高校代码
 
