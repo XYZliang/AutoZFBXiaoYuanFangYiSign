@@ -76,57 +76,57 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
     > `crontab` 使用方法可以网上查找资料
     
     
-## B . **部署免费GITHUB服务器（Github Workflows）🔥**  （！！推荐！！）（适合自己没有服务器的童鞋）
+## ~~B . **部署免费GITHUB服务器（Github Workflows）🔥**  （！！推荐！！）（适合自己没有服务器的童鞋）~~**暂时有问题，GitHub定时有巨大的延迟，正在研究**
 
-1. 克隆/派生本项目到你自己的仓库
+1. ~~克隆/派生本项目到你自己的仓库~~
 
-2. 克隆你的项目到本地，在本地编辑sign.py，然后提交回去
+2. ~~克隆你的项目到本地，在本地编辑sign.py，然后提交回去~~
 
-   或者直接在GitHub上编辑sign.py并保存
+   ~~或者直接在GitHub上编辑sign.py并保存~~
 
-   ![edit](README/edit.png)
+   ~~![edit](README/edit.png)~~
    
-3. 点开你项目的Actions，点击左侧Workflows-All workflows-Auto ZFB XiaoYuanFangYi Sign，点击黄色警示⚠️条右边的Enable workflow
+3. ~~点开你项目的Actions，点击左侧Workflows-All workflows-Auto ZFB XiaoYuanFangYi Sign，点击黄色警示⚠️条右边的Enable workflow~~
 
-   ![action](README/action.png)
+   ~~![action](README/action.png)~~
 
-4. 至此，GitHub workflow已经成功开启。默认情况下将会在每天的凌晨1点和2点进行签到。如果想修改定时时间，可以看下一部分。
+4. ~~至此，GitHub workflow已经成功开启。默认情况下将会在每天的凌晨1点和2点进行签到。如果想修改定时时间，可以看下一部分。~~
 
 ## C . 部署到腾讯云云函数（免费） 🦄
 
 自己研究咯，只是以前知道这玩意也能免费定时运行代码。
 
-# 🏪关于GitHub workflow的更多说明
+# ~~🏪关于GitHub workflow的更多说明~~
 
-## 测试一下，怎么知道自己的能不能正常运行呢？
+## ~~测试一下，怎么知道自己的能不能正常运行呢？~~
 
-在成功编辑完sign.py和打开workflow后，给你自己的项目点个START（如果已经START了，取消START并再次START即可），就可以手动出发运行workflow。此时打开项目的Action，就会发现出了一个新的workflow正在运行或刚刚运行完毕，点击即可查看详情。![workflow](README/workflow.png)
+~~在成功编辑完sign.py和打开workflow后，给你自己的项目点个START（如果已经START了，取消START并再次START即可），就可以手动出发运行workflow。此时打开项目的Action，就会发现出了一个新的workflow正在运行或刚刚运行完毕，点击即可查看详情。![workflow](README/workflow.png)~~
 
-点击Do sign可以查看运行详情，当然，每次运行，你的仓库log文件夹下也会自动生成了日志文件，可以进行查看。
+~~点击Do sign可以查看运行详情，当然，每次运行，你的仓库log文件夹下也会自动生成了日志文件，可以进行查看。~~
 
-![detail](README/detail.png)
+~~![detail](README/detail.png)~~
 
-如果运行失败，你的GitHub绑定的邮箱会收到相关提醒。
+~~如果运行失败，你的GitHub绑定的邮箱会收到相关提醒。~~
 
-![failed](README/failed.jpg)
+~~![failed](README/failed.jpg)~~
 
-以上不仅适用于手动出发的action，每天自动运行的action也是一样的。
+~~以上不仅适用于手动出发的action，每天自动运行的action也是一样的。~~
 
-## 怎么修改定时运行的时间？
+## ~~怎么修改定时运行的时间？~~
 
-打开Action，找到一个运行的记录，点击右侧的三个点，再点击View workflow file（推荐）
+~~打开Action，找到一个运行的记录，点击右侧的三个点，再点击View workflow file（推荐）~~
 
-或者在项目中打开文件夹.github/workflows/autosign.yml
+~~或者在项目中打开文件夹.github/workflows/autosign.yml~~
 
-![show file](README/show file.png)
+~~![show file](README/show file.png)~~
 
-然后点击右上角的笔进入编辑，在第十二行找到：
+~~然后点击右上角的笔进入编辑，在第十二行找到：~~
 
 ```shell
     - cron: '0 17,18 * * *'
 ```
 
-至于cron的用法，大家具体百度。要注意的是，这里的时间是UTC协调世界时，简单的说，就是要在你理解的北京时间上减去8小事。比如凌晨一点，这里你要输入17点（｜1点-8小时｜），凌晨十二点，这里你要输入16点（｜0点-8小时｜），随后右上角提交即可。
+~~至于cron的用法，大家具体百度。要注意的是，这里的时间是UTC协调世界时，简单的说，就是要在你理解的北京时间上减去8小事。比如凌晨一点，这里你要输入17点（｜1点-8小时｜），凌晨十二点，这里你要输入16点（｜0点-8小时｜），随后右上角提交即可。~~
 
 
 # ❗ 关于 ``street`` 参数与 ``zddlwz`` 参数（平常使用支付宝和微信进行签到的童鞋直接略过）
