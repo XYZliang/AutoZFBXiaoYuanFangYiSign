@@ -63,7 +63,9 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 
 8. 如果使用输入的经纬度模式，即上一步中的参数 `signType = 1`,则还需要配置32行和34行的经纬度、36行的地址，建议在[*百度拾取坐标系统*](http://api.map.baidu.com/lbsapi/getpoint/index.html)找到自己的位置。经度是较大的那个。
 
-9. 部署到虚拟主机或者本机，然后cd到相关文件夹，运行命令 ` python3 sign.py`  即可
+9. 如果需要server酱推送，可在第38-46行了解详情并配置
+
+10. 部署到虚拟主机或者本机，然后cd到相关文件夹，运行命令 ` python3 sign.py`  即可
     ```bash
     # Ubuntu 安装 python3 方法，其它如 CentOS 可以网上搜
     sudo apt install python3
@@ -72,61 +74,65 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
     pip3 install requests
     ```
 
-10. 对于liunx系统，建议使用 `crontab` 定时运行上述命令。Windows可以使用定时任务，macOS也有定时。
-    > `crontab` 使用方法可以网上查找资料
-    
-    
-## ~~B . **部署免费GITHUB服务器（Github Workflows）🔥**  （！！推荐！！）（适合自己没有服务器的童鞋）~~**暂时有问题，GitHub定时有巨大的延迟，正在研究**
+11. 对于liunx系统，建议使用 `crontab` 定时运行上述命令。Windows可以使用定时任务，macOS也有定时。
+     > `crontab` 使用方法可以网上查找资料
 
-1. ~~克隆/派生本项目到你自己的仓库~~
+     
+## B . **部署免费GITHUB服务器（Github Workflows）🔥**  （！！推荐！！）（适合自己没有服务器的童鞋）
 
-2. ~~克隆你的项目到本地，在本地编辑sign.py，然后提交回去~~
+1. 克隆/派生本项目到你自己的仓库
 
-   ~~或者直接在GitHub上编辑sign.py并保存~~
+2. 克隆你的项目到本地，在本地编辑sign.py，同A方案的2-9步骤，然后提交回去
 
-   ~~![edit](README/edit.png)~~
+   或者直接在GitHub上编辑sign.py并保存
+
+   ![edit](README/edit.png)
    
-3. ~~点开你项目的Actions，点击左侧Workflows-All workflows-Auto ZFB XiaoYuanFangYi Sign，点击黄色警示⚠️条右边的Enable workflow~~
+3. 点开你项目的Actions，点击左侧Workflows-All workflows-Auto ZFB XiaoYuanFangYi Sign，点击黄色警示⚠️条右边的Enable workflow
 
-   ~~![action](README/action.png)~~
+   ![action](README/action.png)
 
-4. ~~至此，GitHub workflow已经成功开启。默认情况下将会在每天的凌晨1点和2点进行签到。如果想修改定时时间，可以看下一部分。~~
+4. 至此，GitHub workflow已经成功开启。默认理想情况下将会在每天的凌晨0点半、9点半、18点半进行三次签到。如果想修改定时时间，可以看下一部分。
 
 ## C . 部署到腾讯云云函数（免费） 🦄
 
 自己研究咯，只是以前知道这玩意也能免费定时运行代码。
 
-# ~~🏪关于GitHub workflow的更多说明~~
+# 🏪关于GitHub workflow的更多说明
 
-## ~~测试一下，怎么知道自己的能不能正常运行呢？~~
+## 测试一下，怎么知道自己的能不能正常运行呢？
 
-~~在成功编辑完sign.py和打开workflow后，给你自己的项目点个START（如果已经START了，取消START并再次START即可），就可以手动出发运行workflow。此时打开项目的Action，就会发现出了一个新的workflow正在运行或刚刚运行完毕，点击即可查看详情。![workflow](README/workflow.png)~~
+在成功编辑完sign.py和打开workflow后，每次 提交一次push，就可以手动出发运行workflow。此时打开项目的Action，就会发现出了一个新的workflow正在运行或刚刚运行完毕，点击即可查看详情。![workflow](README/workflow.png)
 
-~~点击Do sign可以查看运行详情，当然，每次运行，你的仓库log文件夹下也会自动生成了日志文件，可以进行查看。~~
+点击Do sign可以查看运行详情，当然，每次运行，你的仓库log文件夹下也会自动生成了日志文件，可以进行查看。
 
-~~![detail](README/detail.png)~~
+如果你配置了SERVER酱，也会将签到日志一起推送。
 
-~~如果运行失败，你的GitHub绑定的邮箱会收到相关提醒。~~
+![detail](README/detail.png)
 
-~~![failed](README/failed.jpg)~~
+如果运行失败，你的GitHub绑定的邮箱会收到相关提醒。
 
-~~以上不仅适用于手动出发的action，每天自动运行的action也是一样的。~~
+![failed](README/failed.jpg)
 
-## ~~怎么修改定时运行的时间？~~
+以上不仅适用于手动出发的action，每天自动运行的action也是一样的。
 
-~~打开Action，找到一个运行的记录，点击右侧的三个点，再点击View workflow file（推荐）~~
+## 怎么修改定时运行的时间？
 
-~~或者在项目中打开文件夹.github/workflows/autosign.yml~~
+打开Action，找到一个运行的记录，点击右侧的三个点，再点击View workflow file（推荐）
 
-~~![show file](README/show file.png)~~
+或者在项目中打开文件夹.github/workflows/autosign.yml
 
-~~然后点击右上角的笔进入编辑，在第十二行找到：~~
+![show file](README/show file.png)
+
+然后点击右上角的笔进入编辑，在第十二行找到：
 
 ```shell
-    - cron: '0 17,18 * * *'
+    - cron: '30 */9 * * *'
 ```
 
-~~至于cron的用法，大家具体百度。要注意的是，这里的时间是UTC协调世界时，简单的说，就是要在你理解的北京时间上减去8小事。比如凌晨一点，这里你要输入17点（｜1点-8小时｜），凌晨十二点，这里你要输入16点（｜0点-8小时｜），随后右上角提交即可。~~
+至于cron的用法，大家具体百度。要注意的是，这里的时间是UTC协调世界时，简单的说，就是要在你理解的北京时间上减去8小事。比如凌晨一点，这里你要输入17点（｜1点-8小时｜），凌晨十二点，这里你要输入16点（｜0点-8小时｜），随后右上角提交即可。
+
+注意！github action存在一定的延迟，测试发现可能是几分钟，也可能是几十分钟，也可能是一个多小时。所以到了定时时间却没有运行请不必担心，等一天你再看看。
 
 
 # ❗ 关于 ``street`` 参数与 ``zddlwz`` 参数（平常使用支付宝和微信进行签到的童鞋直接略过）
@@ -151,15 +157,16 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
     ```JavaScript
     "zddlwz" => $province . $city . $district . $street,//自动地理位置：省市县(区)街道 拼接结果
     ```
-  ```
 2. 微信环境  
 微信环境中同样需要 ``street`` 参数，并且不同于支付宝环境，微信环境中 ``street`` 参数不包含 ``streetNumber`` 信息，拼接地理位置时 ``zddlwz`` 同样需要详细到街道号。  
-  至于 ``street`` 参数中具体填什么，建议自行查看微信小程序开发者文档。
+    至于 ``street`` 参数中具体填什么，建议自行查看微信小程序开发者文档。
+   
     ```JavaScript
     address.street = addComp.street;
     //...
     address.zddlwz = addComp.province+addComp.city+addComp.district+addComp.street+addComp.streetNumber;
-  ```
+    ```
+
 3. H5环境  
     H5环境 ``street`` 参数为可选项，对于H5环境的同学，不需要对 ``Singleton.php`` 做额外更改。
     ```JavaScript
@@ -224,10 +231,10 @@ Python 3.9
 
 > 可能会有，可能不会有
 
-- [x] ~~加入多人签到的完整支持~~
+- [x] 加入多人签到的完整支持
 - [ ] 支持通过server酱等进行签到成功/失败通知
-- [x] ~~配合GitHub Action达到利用GitHub来做服务器免费进行签到~~
-- [x] ~~通过获取上一次的签到记录进行签到，并进行随机偏移~~
+- [x] 配合GitHub Action达到利用GitHub来做服务器免费进行签到
+- [x] 通过获取上一次的签到记录进行签到，并进行随机偏移
 
 # 🤹‍♂️ 更新记录
 
@@ -242,6 +249,12 @@ Python 3.9
 - 2020.2.18
   
   加入对GitHub workflows以达到免自己服务器进行云定时签到的支持
+  
+- 2020.2.19
+  
+  加入对SERVER酱推送的支持，log更加详细，修复GitHub workflows的一些小bug
+  
+  
 
 # 🏫 江西省100所高校代码
 

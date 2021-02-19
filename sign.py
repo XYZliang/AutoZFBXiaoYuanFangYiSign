@@ -7,7 +7,7 @@ signs = 0
 # 仅当选择单人签到，即上面signs = 0时才需要配置，否则可以忽略
 yourID = 你的学号
 # 多人签到学号组，部分学校可能用一卡通号等代替。可以到  https://fxgl.jx.edu.cn/你的高校代码/   自己尝试一下
-# 仅当选择多人签到，即上面signs = 1时才需要配置，否则可以忽略，使用英语逗号 , 将每个学号分开哦，需要是同一个学校，两侧的双引号别丢了
+# 仅当选择多人签到，即上面signs = 1时才需要配置，否则可以忽略，使用英语逗号 , 将每个学号分开哦，需要是同一个学校，两侧的引号别丢了
 IDs = '学号1,学号2,学号3,学号4'
 
 # 高校代码，详见GitHub项目介绍
@@ -28,14 +28,24 @@ sfby = 1
 signType = 0
 
 # 如果使用输入的经纬度，即上面的signType = 1的话，才需要配置，否则可以忽略
-# 经度
-lng = 116.345457
-# 纬度
-lat = 27.958617
-# 地址 尽量详细 包含省市区/镇
-zddlwz = '江西省抚州市临川区迎宾大道999号伟星栖凤华都'
+# 经度，至少精确到小数点后6
+lng = 123.456789
+# 纬度，至少精确到小数点后6
+lat = 22.222222
+# 地址 尽量详细 包含省市区/镇，两侧的引号别丢了
+zddlwz = '你的地址'
 
-# ##################################程序开始########################################
+# ##############################用户通知数据配置#######################################
+# ##########SERVER酱配置###############
+# #SERVER酱Turbo升级版新官网 sct.ftqq.com
+# 是否开启SERVER酱通知 0表示关闭 1表示开启
+server_chan =0
+# SERVER酱sendkey，两侧的引号别丢了
+# 查看网址 sct.ftqq.com/sendkey
+# 免费版可每日发送五条推送
+sendkey = '你的key'
+
+# ##################################程序开始#########################################
 import time
 import datetime
 import http
@@ -55,23 +65,18 @@ name = None
 signPostInfo = None
 # 全局变量，保存学号
 ID = None
+# 全局变量，保存发送的信息
+message = "AutoZFBXiaoYuanFangYiSign打卡通知：\n"
+# 统计签到情况
+count = [0, 0, 0]
 # 日期
 today = datetime.date.today()
-nowtime = datetime.datetime.now()
 # log文件
 if os.path.isdir('log') is False:
     os.mkdir('log')
 log = open('log/' + str(today), 'a+')
-log.write(str(nowtime) + '\n')
-if signType == 0:
-    log.write('SIGN TYPE 0' + '\n')
-else:
-    log.write('SIGN TYPE 1' + '\n')
-if signs == 0:
-    log.write('Sign in alone' + '\n')
-else:
-    log.write('Multiple check-in' + IDs + '\n')
-    IDList = IDs.split(',')
+pointer = log.tell()
+IDList = IDs.split(',')
 
 
 def login():
@@ -93,7 +98,7 @@ def login():
         return
     else:
         print('登陆有些不对劲，程序出错，请将完整输出提交issuer')
-        log.write('ERROR LOGIN' + '\n')
+        log.write('登陆出错' + '\n')
         return 'ERROR'
 
 
@@ -111,7 +116,7 @@ def verify(cookie):
         log.write('COOKIE OK' + '\n')
     else:
         print(str(ID) + '没有查询到历史签到记录，请签到一次后再使用本脚本,或者使用另一种签到模式')
-        log.write('WARNING FIRST' + '\n')
+        log.write('没有签到历史' + '\n')
         cookie_file_operation(delete=True)
         return 'ERROR'
     return True
@@ -127,11 +132,11 @@ def is_sign(cookie):
     res_dic = json.loads(info_json)
     if res_dic['data'] == 1:
         print('今天已经签到啦')
-        log.write('SIAN ALREADY' + '\n')
+        log.write('已经签到' + '\n')
         return True
     else:
         print('开始签到')
-        log.write('SIGN START' + '\n')
+        log.write('开始签到' + '\n')
         return False
 
 
@@ -164,22 +169,22 @@ def sign_history(cookie, check_exit=False):
             return False
         else:
             print('无历史签到')
-            log.write('FIRST SIGN' + '\n')
+            log.write('无历史签到' + '\n')
 
 
 def cookie_file_operation(cookie=None, delete=False):
     cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
     if delete:
         os.remove(cookie_file)
-        log.write('COOKIE DELETE' + '\n')
+        log.write('删除cookie' + '\n')
         return
     if os.path.isfile(cookie_file):
-        log.write('COOKIE FILE' + '\n')
+        log.write('cookie文件存在' + '\n')
         try:
             cookie.load(cookie_file, ignore_discard=True, ignore_expires=True)
-            log.write('COOKIE FILE LOAD' + '\n')
+            log.write('cookie文件加载成功' + '\n')
         except http.cookiejar.LoadError:
-            log.write('COOKIE FILE FAILED' + '\n')
+            log.write('cookie文件加载失败' + '\n')
             return False
         return True
     else:
@@ -190,13 +195,13 @@ def construction_post(lng1, lat1, address):
     global lng, lat, zddlwz, signPostInfo
     if signType == 0:
         # 随机偏移1m
-        log.write('LOCAL ' + str(lng1) + '，' + str(lat1) + '，' + str(address) + '\n')
+        log.write('定位 ' + str(lng1) + '，' + str(lat1) + '，' + str(address) + '\n')
         lng = round(float(lng1) + random.uniform(-0.000010, +0.000010), 6)
         lat = round(float(lat1) + random.uniform(-0.000010, +0.000010), 6)
         zddlwz = address
     else:
         # 随机偏移11m
-        log.write('LOCAL ' + str(lng) + '，' + str(lat) + '，' + str(zddlwz) + '\n')
+        log.write('定位 ' + str(lng) + '，' + str(lat) + '，' + str(zddlwz) + '\n')
         lng = round(float(lng) + random.uniform(-0.000100, +0.000100), 6)
         lat = round(float(lat) + random.uniform(-0.000100, +0.000100), 6)
         address = zddlwz
@@ -232,7 +237,7 @@ def construction_post(lng1, lat1, address):
     street = parse.quote(street)
     address = parse.quote(address)
     post = 'province=' + province + '&city=' + city + '&district=' + district + '&street=' + street + '&xszt=0&jkzk=0' \
-           '&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=' + address + '&sddlwz=&bprovince=' + province + '&bcity=' \
+                                                                                                      '&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=' + address + '&sddlwz=&bprovince=' + province + '&bcity=' \
            + city + '&bdistrict=' + district + '&bstreet=' + street + '&sprovince=' + province + '&scity=' + city + \
            '&sdistrict=' + district + '&lng=' + str(lng) + '&lat=' + str(lat) + '&sfby=' + str(sfby)
     log.write(post + '\n')
@@ -250,19 +255,19 @@ def sign(cookie):
     res = res.read().decode()
     if '1001' in res:
         print('签到成功')
-        log.write('SIGN OK' + '\n')
+        log.write('签到成功' + '\n')
     elif '1002' in res:
         print('今天已经签到啦')
-        log.write('SIGN OK ALREADY' + '\n')
+        log.write('今天已经签到' + '\n')
     else:
         print('签到有些不对劲，程序出错，请将完整输出提交issuer')
-        log.write('SIGN OK ERROR' + '\n')
+        log.write('签到错误' + '\n')
 
 
 def exit_program():
-    global log
+    send()
     nnowtime = datetime.datetime.now()
-    log.write(str(nnowtime) + 'EXIT\n')
+    log.write(str(nnowtime) + '程序结束\n')
     log.write(
         '######################################################################' + '\n' + '\n' + '\n' + '\n' + '\n')
     log.close()
@@ -276,34 +281,160 @@ def start(signID):
     if cookie_file_operation(cookie=cookie) is False:
         print('登陆数据文件丢失或不存在，尝试重新获取登陆数据')
         if login() == 'ERROR':
-            return
+            return False
         cookie_file_operation(cookie=cookie)
     verify_code = verify(cookie)
     if verify_code is False:
         print('尝试重新获取登陆数据')
         if login() == 'ERROR':
-            return
+            return False
         cookie_file_operation(cookie=cookie)
     elif verify_code == 'ERROR':
-        return
+        return False
     else:
         print('登陆数据检测成功')
     if is_sign(cookie) is False:
         sign(cookie=cookie)
+        return True
+    else:
+        return "OK"
+
+
+def statistics(statue):
+    global message
+    if statue is False:
+        message = message + name + " " + str(ID) + " 打卡错误！\n"
+        count[0] = count[0] + 1
+        return
+    if statue is True:
+        message = message + name + " " + str(ID) + " 打卡成功！\n"
+        count[1] = count[1] + 1
+        return
+    if statue == "OK":
+        message = message + name + " " + str(ID) + " 已经打卡！\n"
+        count[2] = count[2] + 1
+        return
+
+
+def send():
+    if signs == 0:
+        sending()
+    else:
+        sendings()
+
+
+def sendings():
+    if count[1] + count[2] == len(IDList):
+        title = str(len(IDList)) + "人全部签到成功!"
+    else:
+        title = "部分签到成功：" + str(count[1] + count[2]) + "人签到成功，" + str(count[0]) + "人失败！！！！！"
+    log.write(str(title) + '\n')
+    if server_chan == 1:
+        send_serverchan(str(title))
+    return
+
+
+def sending():
+    if count[0] == 1:
+        title = str(name) + str(ID) + "签到失败！"
+    else:
+        title = str(name) + str(ID) + "签到成功！"
+    log.write(str(title) + '\n')
+    if server_chan == 1:
+        send_serverchan(str(title))
+    return
+
+
+def send_serverchan(title):
+    global message
+    url = 'https://sctapi.ftqq.com/'+sendkey+'.send'
+    log.seek(pointer, 0)
+    f = log.read()
+    message = message + "\n###本次签到日志如下###\n" + str(f)
+    message = message.replace("\n", "\n\n")
+    data = {'title': title.encode('utf-8'), 'desp': message.encode('utf-8')}
+    res = requests.post(url=url, data=data)
+    serverdata = json.loads(res.text)
+    if serverdata["data"]["error"] == "SUCCESS":
+        pushid = serverdata["data"]["pushid"]
+        readkey = serverdata["data"]["readkey"]
+        url = "https://sctapi.ftqq.com/push?id=" + pushid + "&readkey=" + readkey;
+        i = 1
+        wxstatus = ""
+        wxok = False
+        while i < 60 and wxok is False:
+            time.sleep(0.25)
+            res = requests.get(url=url)
+            serverstatusdata = json.loads(res.text)
+            wxstatus = str(serverstatusdata["data"]["wxstatus"])
+            i = i + 1
+            if len(wxstatus) > 2:
+                wxok = True
+        if wxok:
+            print("SERVER发送成功")
+            log.write("SERVER发送成功：" + wxstatus + '\n')
+        else:
+            print("SERVER发送失败")
+            log.write("SERVER发送失败：" + wxstatus + '\n')
+    return
+
+
+def initialization():
+    nowtime = datetime.datetime.now()
+    log.write(str(nowtime) + '\n')
+    if signType == 0:
+        log.write('历史定位签到模式' + '\n')
+    else:
+        log.write('输入定位签到模式' + '\n')
+    if signs == 0:
+        log.write('单人签到模式' + '\n')
+    else:
+        log.write('多人签到模式' + IDs + '\n')
+    url1 = 'https://worldtimeapi.org/api/timezone/Asia/Shanghai'
+    url2 = 'https://worldtimeapi.org/api/timezone/Europe/London'
+    res1 = requests.get(url1)
+    res2 = requests.get(url2)
+    data = json.loads(res1.text)
+    ip = data["client_ip"]
+    t = data["datetime"]
+    t = t[:19]
+    data = json.loads(res2.text)
+    UTC = data["datetime"]
+    UTC = UTC[:19]
+    url3 = "https://whois.pconline.com.cn/ip.jsp?ip=" + ip
+    res3 = requests.get(url3)
+    ipdata = res3.text
+    ttime = datetime.datetime.strptime(str(t), "%Y-%m-%dT%H:%M:%S")
+    utime = datetime.datetime.strptime(str(UTC), "%Y-%m-%dT%H:%M:%S")
+    log.write('当前IP：' + ip + "," + ipdata + '\n')
+    log.write('系统时间：' + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + '\n')
+    log.write('UTC时间：' + str(utime) + '\n')
+    log.write('北京时间：' + str(ttime) + '\n')
+    log.write('北京时间与系统时间误差：' + str(ttime - datetime.datetime.now()) + '\n')
 
 
 if __name__ == "__main__":
     ssl._create_default_https_context = ssl._create_unverified_context
+    initialization()
+    nowtime = datetime.datetime.now()
     if signs == 0:
-        start(yourID)
+        print(str(nowtime) + ':' + str(yourID) + '开始')
+        nowtime = datetime.datetime.now()
+        log.write(str(nowtime) + ':' + str(yourID) + '签到开始\n')
+        return_state = start(yourID)
+        nowtime = datetime.datetime.now()
+        log.write(str(nowtime) + ':' + str(yourID) + '签到结束\n')
+        print('\n\n\n')
+        statistics(return_state)
     else:
         for signID in IDList:
             print(str(nowtime) + ':' + signID + '开始')
             nowtime = datetime.datetime.now()
-            log.write(str(nowtime) + ':' + signID + 'START\n')
-            start(int(signID))
+            log.write(str(nowtime) + ':' + signID + '签到开始\n')
+            return_state = start(int(signID))
             nowtime = datetime.datetime.now()
-            log.write(str(nowtime) + ':' + signID + 'EXIT\n')
+            log.write(str(nowtime) + ':' + signID + '签到结束\n')
             print('\n\n\n')
-            time.sleep(float(random.uniform(0, 0.5)))
+            statistics(return_state)
+            time.sleep(float(random.uniform(0, 0.25)))
     exit_program()
