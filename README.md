@@ -223,18 +223,19 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 
 # 💻测试环境
 
-macOS Big Sur 11.3 BETA
+系统：macOS Big Sur 11.3 BETA    ubuntu18.04
 
-Python 3.9
+python版本：Python 3.9
 
 # 🙋‍♀️ 未来计划
 
 > 可能会有，可能不会有
 
 - [x] 加入多人签到的完整支持
-- [ ] 支持通过server酱等进行签到成功/失败通知
+- [x] 支持通过server酱进行签到成功/失败通知
 - [x] 配合GitHub Action达到利用GitHub来做服务器免费进行签到
 - [x] 通过获取上一次的签到记录进行签到，并进行随机偏移
+- [ ] 支持通过QQ机器人（httpAPI）插件进行签到成功/失败通知
 
 # 🤹‍♂️ 更新记录
 
