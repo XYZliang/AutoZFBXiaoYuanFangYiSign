@@ -54,3 +54,39 @@ SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
 
 
 
+2021-08-07 18:45:40.145988
+输入定位签到模式
+单人签到模式
+当前IP：13.84.43.137,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-07 18:46:00
+UTC时间：2021-08-07 19:45:59
+北京时间：2021-08-08 02:45:52
+北京时间与系统时间误差：7:59:51.705749
+2021-08-07 18:46:00.294302:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.990713，27.126429，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.00215042980662,"lat":27.129026146783219},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990641&lat=27.126477&sfby=1
+NAME况俊
+定位 114.990641，27.126477，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.00217765701518,"lat":27.129015638673235},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990668&lat=27.126467&sfby=1
+签到成功
+2021-08-07 18:46:35.575903:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-07 18:46:39.547735程序结束
+######################################################################
+
+
+
+
