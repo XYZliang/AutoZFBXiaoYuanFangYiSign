@@ -54,3 +54,39 @@ SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\",\"ms
 
 
 
+2021-08-19 18:42:21.317087
+输入定位签到模式
+单人签到模式
+当前IP：40.86.23.124,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-19 18:42:26
+UTC时间：2021-08-19 19:42:21
+北京时间：2021-08-20 02:42:21
+北京时间与系统时间误差：7:59:54.693098
+2021-08-19 18:42:26.306953:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.41628，27.813957，江西省宜春市袁州区钓台路796号地中海风情
+{"status":0,"result":{"location":{"lng":114.4282216867032,"lat":27.816454349972916},"formatted_address":"江西省宜春市袁州区丰城文化广场健走步道","business":"宜阳大道","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"宜春市","city_level":2,"district":"袁州区","town":"","town_code":"","adcode":"360902","street":"丰城文化广场健走步道","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":278}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%AE%9C%E6%98%A5%E5%B8%82&district=%E8%A2%81%E5%B7%9E%E5%8C%BA&street=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%AE%9C%E6%98%A5%E5%B8%82%E8%A2%81%E5%B7%9E%E5%8C%BA%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%AE%9C%E6%98%A5%E5%B8%82&bdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&bstreet=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%AE%9C%E6%98%A5%E5%B8%82&sdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&lng=114.416348&lat=27.813899&sfby=1
+NAME况俊
+定位 114.416348，27.813899，江西省宜春市袁州区钓台路796号地中海风情
+{"status":0,"result":{"location":{"lng":114.42826263151069,"lat":27.81643542556279},"formatted_address":"江西省宜春市袁州区丰城文化广场健走步道","business":"宜阳大道","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"宜春市","city_level":2,"district":"袁州区","town":"","town_code":"","adcode":"360902","street":"丰城文化广场健走步道","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":278}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%AE%9C%E6%98%A5%E5%B8%82&district=%E8%A2%81%E5%B7%9E%E5%8C%BA&street=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%AE%9C%E6%98%A5%E5%B8%82%E8%A2%81%E5%B7%9E%E5%8C%BA%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%AE%9C%E6%98%A5%E5%B8%82&bdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&bstreet=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%AE%9C%E6%98%A5%E5%B8%82&sdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&lng=114.416389&lat=27.81388&sfby=1
+签到成功
+2021-08-19 18:42:47.454909:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\",\"msgid\":\"mrVtVXE39it1tWVvd57npDvkQBrAxrk4vAc9GVnSUE6ubDEKOprP0SJ5-20YtJte4Eb_zgRgz0yu1VPcoxjJuw\"}"
+2021-08-19 18:42:49.745534程序结束
+######################################################################
+
+
+
+
