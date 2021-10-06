@@ -1,0 +1,92 @@
+2021-08-20 01:34:06.297830
+输入定位签到模式
+单人签到模式
+当前IP：40.113.247.91,
+
+ 美国艾奥瓦州得梅因Microsoft数据中心
+
+系统时间：2021-08-20 01:34:11
+UTC时间：2021-08-20 02:34:06
+北京时间：2021-08-20 09:34:06
+北京时间与系统时间误差：7:59:54.094907
+2021-08-20 01:34:11.905158:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-20 01:34:34.292757:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\",\"msgid\":\"mrVtVXE39it1tWVvd57npEtL1RhxQOYCnszFoMTz43wrBuLpghqtMeD_JawnmQNf3XGFrVd1M1sSJbiDADmjsg\"}"
+2021-08-20 01:34:37.307347程序结束
+######################################################################
+
+
+
+
+2021-08-20 09:39:52.028488
+输入定位签到模式
+单人签到模式
+当前IP：20.97.23.78,
+
+ 美国DXCTechnology
+
+系统时间：2021-08-20 09:39:59
+UTC时间：2021-08-20 10:39:55
+北京时间：2021-08-20 17:39:54
+北京时间与系统时间误差：7:59:54.033558
+2021-08-20 09:39:59.967070:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-20 09:40:22.044636:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\",\"msgid\":\"mrVtVXE39it1tWVvd57npGozVVhMag824wqGgoudxpO8v8Ad3r3UqVKpqVNfXS57HUGS5MwXIY1KJg1-UmSE6Q\"}"
+2021-08-20 09:40:24.538877程序结束
+######################################################################
+
+
+
+
+2021-08-20 18:45:50.455092
+输入定位签到模式
+单人签到模式
+当前IP：13.84.191.125,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-20 18:45:56
+UTC时间：2021-08-20 19:45:50
+北京时间：2021-08-21 02:45:50
+北京时间与系统时间误差：7:59:53.881789
+2021-08-20 18:45:56.118273:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.41628，27.813957，江西省宜春市袁州区钓台路796号地中海风情
+{"status":0,"result":{"location":{"lng":114.42815660717419,"lat":27.81646428769368},"formatted_address":"江西省宜春市袁州区丰城文化广场健走步道","business":"宜阳大道","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"宜春市","city_level":2,"district":"袁州区","town":"","town_code":"","adcode":"360902","street":"丰城文化广场健走步道","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":278}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%AE%9C%E6%98%A5%E5%B8%82&district=%E8%A2%81%E5%B7%9E%E5%8C%BA&street=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%AE%9C%E6%98%A5%E5%B8%82%E8%A2%81%E5%B7%9E%E5%8C%BA%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%AE%9C%E6%98%A5%E5%B8%82&bdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&bstreet=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%AE%9C%E6%98%A5%E5%B8%82&sdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&lng=114.416283&lat=27.813909&sfby=1
+NAME况俊
+定位 114.416283，27.813909，江西省宜春市袁州区钓台路796号地中海风情
+{"status":0,"result":{"location":{"lng":114.42822249776138,"lat":27.81639928342039},"formatted_address":"江西省宜春市袁州区丰城文化广场健走步道","business":"宜阳大道","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"宜春市","city_level":2,"district":"袁州区","town":"","town_code":"","adcode":"360902","street":"丰城文化广场健走步道","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":278}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%AE%9C%E6%98%A5%E5%B8%82&district=%E8%A2%81%E5%B7%9E%E5%8C%BA&street=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%AE%9C%E6%98%A5%E5%B8%82%E8%A2%81%E5%B7%9E%E5%8C%BA%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%AE%9C%E6%98%A5%E5%B8%82&bdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&bstreet=%E9%92%93%E5%8F%B0%E8%B7%AF796%E5%8F%B7%E5%9C%B0%E4%B8%AD%E6%B5%B7%E9%A3%8E%E6%83%85&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%AE%9C%E6%98%A5%E5%B8%82&sdistrict=%E8%A2%81%E5%B7%9E%E5%8C%BA&lng=114.416349&lat=27.813844&sfby=1
+签到成功
+2021-08-20 18:46:31.275374:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\",\"msgid\":\"mrVtVXE39it1tWVvd57npLOq5nK08LnWfZVNm10FNEXF8F5QB00iLgAXjual0kqub0EWJYW4cZPXovaL9ukZQQ\"}"
+2021-08-20 18:46:33.607989程序结束
+######################################################################
+
+
+
+

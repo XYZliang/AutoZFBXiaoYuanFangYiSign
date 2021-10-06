@@ -1,0 +1,120 @@
+2021-08-02 01:38:47.151024
+输入定位签到模式
+单人签到模式
+当前IP：168.61.147.110,
+
+ 美国
+
+系统时间：2021-08-02 01:39:10
+UTC时间：2021-08-02 02:39:05
+北京时间：2021-08-02 09:38:56
+北京时间与系统时间误差：7:59:45.581390
+2021-08-02 01:39:10.418678:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-02 01:39:29.478378:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-02 01:39:34.322211程序结束
+######################################################################
+
+
+
+
+2021-08-02 03:10:14.215721
+输入定位签到模式
+单人签到模式
+当前IP：104.214.92.115,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-02 03:10:26
+UTC时间：2021-08-02 04:10:20
+北京时间：2021-08-02 11:10:15
+北京时间与系统时间误差：7:59:48.974916
+2021-08-02 03:10:26.025143:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-02 03:10:45.848872:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-02 03:10:55.197906程序结束
+######################################################################
+
+
+
+
+2021-08-02 09:41:13.741102
+输入定位签到模式
+单人签到模式
+当前IP：13.89.55.220,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-02 09:41:18
+UTC时间：2021-08-02 10:41:13
+北京时间：2021-08-02 17:41:13
+北京时间与系统时间误差：7:59:54.611526
+2021-08-02 09:41:18.388528:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-02 09:41:41.769274:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-02 09:41:49.922351程序结束
+######################################################################
+
+
+
+
+2021-08-02 18:46:36.439532
+输入定位签到模式
+单人签到模式
+当前IP：40.77.102.188,
+
+ 美国艾奥瓦州得梅因Microsoft数据中心
+
+系统时间：2021-08-02 18:46:45
+UTC时间：2021-08-02 19:46:44
+北京时间：2021-08-03 02:46:42
+北京时间与系统时间误差：7:59:56.364888
+2021-08-02 18:46:45.635161:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.990713，27.126429，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.00212921688332,"lat":27.129058529756624},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.99062&lat=27.126509&sfby=1
+NAME况俊
+定位 114.99062，27.126509，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.0022067973351,"lat":27.129011609930254},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990697&lat=27.126463&sfby=1
+签到成功
+2021-08-02 18:47:16.395636:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-02 18:47:25.318473程序结束
+######################################################################
+
+
+
+

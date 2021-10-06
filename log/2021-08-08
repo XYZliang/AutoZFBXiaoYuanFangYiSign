@@ -1,0 +1,92 @@
+2021-08-08 01:36:38.598531
+输入定位签到模式
+单人签到模式
+当前IP：40.78.144.201,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-08 01:36:40
+UTC时间：2021-08-08 02:36:39
+北京时间：2021-08-08 09:36:38
+北京时间与系统时间误差：7:59:57.531483
+2021-08-08 01:36:40.468570:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-08 01:36:47.551335:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-08 01:36:52.125056程序结束
+######################################################################
+
+
+
+
+2021-08-08 09:40:04.828852
+输入定位签到模式
+单人签到模式
+当前IP：168.61.220.142,
+
+ 美国
+
+系统时间：2021-08-08 09:40:10
+UTC时间：2021-08-08 10:40:05
+北京时间：2021-08-08 17:40:04
+北京时间与系统时间误差：7:59:53.397661
+2021-08-08 09:40:10.602397:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-08-08 09:40:31.570123:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-08 09:40:33.955283程序结束
+######################################################################
+
+
+
+
+2021-08-08 18:45:32.562554
+输入定位签到模式
+单人签到模式
+当前IP：13.66.19.173,
+
+ 美国Microsoft公司
+
+系统时间：2021-08-08 18:45:45
+UTC时间：2021-08-08 19:45:44
+北京时间：2021-08-09 02:45:34
+北京时间与系统时间误差：7:59:48.940534
+2021-08-08 18:45:45.059542:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.990713，27.126429，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.00226529473261,"lat":27.128948468121857},"formatted_address":"江西省吉安市吉州区北门街70-7号","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"70-7号","direction":"西北","distance":"93"},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990755&lat=27.126401&sfby=1
+NAME况俊
+定位 114.990755，27.126401，江西省吉安市吉州区明月花园
+{"status":0,"result":{"location":{"lng":115.00233470034498,"lat":27.12889870680926},"formatted_address":"江西省吉安市吉州区北门街70-7号","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"70-7号","direction":"西北","distance":"84"},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%90%89%E5%AE%89%E5%B8%82%E5%90%89%E5%B7%9E%E5%8C%BA%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E6%98%8E%E6%9C%88%E8%8A%B1%E5%9B%AD&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990824&lat=27.126352&sfby=1
+签到成功
+2021-08-08 18:46:24.865719:T2019216143签到结束
+况俊T2019216143签到成功！
+SERVER发送成功："{\"errcode\":0,\"errmsg\":\"ok\",\"invaliduser\":\"\"}"
+2021-08-08 18:46:28.282747程序结束
+######################################################################
+
+
+
+

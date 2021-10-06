@@ -1,0 +1,89 @@
+2021-07-01 01:38:56.133966
+输入定位签到模式
+单人签到模式
+当前IP：52.176.148.21,
+
+ 美国加利福尼亚州圣克拉拉Microsoft公司
+
+系统时间：2021-07-01 01:39:39
+UTC时间：2021-07-01 02:39:37
+北京时间：2021-07-01 09:38:54
+北京时间与系统时间误差：7:59:14.074681
+2021-07-01 01:39:39.925436:T2019216143签到开始
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+已经签到
+2021-07-01 01:40:18.587526:T2019216143签到结束
+况俊T2019216143签到成功！
+2021-07-01 01:40:18.587552程序结束
+######################################################################
+
+
+
+
+2021-07-01 09:40:16.268403
+输入定位签到模式
+单人签到模式
+当前IP：13.84.178.146,
+
+ 美国Microsoft公司
+
+系统时间：2021-07-01 09:40:17
+UTC时间：2021-07-01 10:40:15
+北京时间：2021-07-01 17:40:14
+北京时间与系统时间误差：7:59:56.763996
+2021-07-01 09:40:17.236088:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-07-01 09:40:44.340822:T2019216143签到结束
+况俊T2019216143签到成功！
+2021-07-01 09:40:44.340862程序结束
+######################################################################
+
+
+
+
+2021-07-01 18:48:06.972002
+输入定位签到模式
+单人签到模式
+当前IP：13.65.171.255,
+
+ 美国Microsoft公司
+
+系统时间：2021-07-01 18:50:24
+UTC时间：2021-07-01 19:50:22
+北京时间：2021-07-02 02:49:14
+北京时间与系统时间误差：7:58:49.669233
+2021-07-01 18:50:24.330826:T2019216143签到开始
+cookie文件存在
+cookie文件加载成功
+NAME况俊
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+定位 114.990549，27.126343，你的地址
+{"status":0,"result":{"location":{"lng":115.00200542436372,"lat":27.12892716629303},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990497&lat=27.126376&sfby=1
+NAME况俊
+定位 114.990497，27.126376，你的地址
+{"status":0,"result":{"location":{"lng":115.00206379955212,"lat":27.129012444444027},"formatted_address":"江西省吉安市吉州区北门街","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"吉安市","city_level":2,"district":"吉州区","town":"","town_code":"","adcode":"360802","street":"北门街","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":318}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%90%89%E5%AE%89%E5%B8%82&district=%E5%90%89%E5%B7%9E%E5%8C%BA&street=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%90%89%E5%AE%89%E5%B8%82&bdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&bstreet=%E4%BD%A0%E7%9A%84%E5%9C%B0%E5%9D%80&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%90%89%E5%AE%89%E5%B8%82&sdistrict=%E5%90%89%E5%B7%9E%E5%8C%BA&lng=114.990555&lat=27.126462&sfby=1
+签到成功
+2021-07-01 18:50:56.514436:T2019216143签到结束
+况俊T2019216143签到成功！
+2021-07-01 18:50:56.514475程序结束
+######################################################################
+
+
+
+
