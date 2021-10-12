@@ -431,7 +431,7 @@ if __name__ == "__main__":
             print(str(nowtime) + ':' + signID + '开始')
             nowtime = datetime.datetime.now()
             log.write(str(nowtime) + ':' + signID + '签到开始\n')
-            return_state = start(String(signID))
+            return_state = start(str(signID))
             nowtime = datetime.datetime.now()
             log.write(str(nowtime) + ':' + signID + '签到结束\n')
             print('\n\n\n')
