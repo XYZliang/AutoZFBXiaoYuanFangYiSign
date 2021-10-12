@@ -1,207 +1,207 @@
 # ##############################用户数据配置#######################################
 
 # 签到模式 0表示单人签到 1表示多人签到
-signs = 0
+标志 = 1
 
-# 单人签到学号，部分学校可能用一卡通号等代替。可以到 https://fxgl.jx.edu.cn/你的高校代码/  自己尝试一下
-# 仅当选择单人签到，即上面signs = 0时才需要配置，否则可以忽略
-yourID = 你的学号
-# 多人签到学号组，部分学校可能用一卡通号等代替。可以到  https://fxgl.jx.edu.cn/你的高校代码/   自己尝试一下
+# 单人签到学号，部分学校可能用一卡通号等代替。https://fxgl.jx.edu.cn/
+#
+你的 ID =问题
+# 多人签到学号组，部分学校可能用一卡通号等代替。https://fxgl.jx.edu.cn/
 # 仅当选择多人签到，即上面signs = 1时才需要配置，否则可以忽略，使用英语逗号 , 将每个学号分开哦，需要是同一个学校，两侧的引号别丢了
-IDs = '学号1,学号2,学号3,学号4'
+ID = "T2020211164，T2020211149"
 
-# 高校代码，详见GitHub项目介绍
+# 表示， # <>， # <> ，
 # 多人签到暂不支持多个学校签到（你想干嘛？）
-schoolID = 4136010403
+学校教育 + 4136013423
 
 # 身份类型 0表示学生 1表示教职工
-identity = 0
+身份 = 0
 
 # 是否为毕业班的学生 0表示是毕业班的学生 1表示不是毕业班的学生。
-sfby = 1
+斯夫比 = 1
 
 # 暂不支持健康状况为异常和被隔离的健康上报，请手动提交，确保自己提交的信息真实有效。
 
 # 签到模式
 # 0表示获取前一日的签到定位（长时间签到可能会偏差较大，适合多人签到且时间跨度不长，每次签到会在上一次签到的基础上随机偏移1.1m以内，理论上连续签到一年会偏移200m左右
 # 1表示使用输入的经纬度（单人签到推荐，会在你输入的经纬度定位上随机偏移11.1m以内
-signType = 0
+符号类型 = 0
 
-# 如果使用输入的经纬度，即上面的signType = 1的话，才需要配置，否则可以忽略
+# 表示， 10， 0 .
 # 经度，至少精确到小数点后6
 lng = 123.456789
 # 纬度，至少精确到小数点后6
-lat = 22.222222
+拉特 = 22.222222
 # 地址 尽量详细 包含省市区/镇，两侧的引号别丢了
-zddlwz = '你的地址'
+zdlwz = "0.
 
 # ##############################用户通知数据配置#######################################
-# ##########SERVER酱配置###############
+#######SERVER酱配置###############
 # #SERVER酱Turbo升级版新官网 sct.ftqq.com
-# 是否开启SERVER酱通知 0表示关闭 1表示开启
-server_chan =0
-# SERVER酱sendkey，两侧的引号别丢了
-# 查看网址 sct.ftqq.com/sendkey
+# 服务员 0 ， 1
+server_chan =1
+# 服务器， 森基，
+# sct.ftqq.com/sendkey
 # 免费版可每日发送五条推送
-sendkey = '你的key'
+发送键 = "钥匙"
 
 # ##################################程序开始#########################################
-import time
-import datetime
-import http
-import json
-import os
-import random
-import re
-import ssl
-import urllib
-from http import cookiejar
-from urllib import parse
-import requests
+进口时间
+进口日期
+进口
+进口杰森
+进口奥斯
+进口随机
+进口重新
+进口 ssl
+进口乌利布
+从 http 进口饼干贾尔
+从尿布进口解析
+导入请求
 
 # 全局变量，保存姓名
-name = None
+名称 = 无
 # 全局变量，保存签到信息
-signPostInfo = None
+标志邮政信息 = 无
 # 全局变量，保存学号
-ID = None
+ID = 无
 # 全局变量，保存发送的信息
-message = "AutoZFBXiaoYuanFangYiSign打卡通知：\n"
+消息 = "自动 10f 晓元方方义签名， *n"
 # 统计签到情况
-count = [0, 0, 0]
+计数= 0， 0， 0]
 # 日期
-today = datetime.date.today()
-# log文件
-if os.path.isdir('log') is False:
-    os.mkdir('log')
-log = open('log/' + str(today), 'a+')
-pointer = log.tell()
-IDList = IDs.split(',')
+今天 = 日期。日期。今天()
+# 日志
+如果奥斯.路径。伊斯迪尔（"日志"）是假的：
+    奥斯.mkdir（"日志")
+日志 = 打开（"日志/" = str（今天） "a+")
+指头 = 日志。告诉()
+ID 列表 = ID。拆分（， ')
 
 
-def login():
-    url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/public/homeQd?loginName=' + str(ID) + '&loginType=' + str(
-        identity)
-    if os.path.isdir('cookie') is False:
-        os.mkdir('cookie')
-    if os.path.isdir('cookie/' + str(ID)) is False:
-        os.mkdir('cookie/' + str(ID))
-    cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
-    open(cookie_file, 'w+').close()
-    cookie = http.cookiejar.MozillaCookieJar(cookie_file)
-    cookies = urllib.request.HTTPCookieProcessor(cookie)  # 创建一个处理cookie的handler
-    opener = urllib.request.build_opener(cookies)  # 创建一个opener
-    request = urllib.request.Request(url=url)
-    res = opener.open(request)
-    cookie.save(ignore_discard=True, ignore_expires=True)
-    if verify(cookie) is True:
-        return
-    else:
-        print('登陆有些不对劲，程序出错，请将完整输出提交issuer')
-        log.write('登陆出错' + '\n')
-        return 'ERROR'
+def 登录（）：
+    url = "https://fxgl.jx.edu.cn/" = 斯特（学校） • [/ 公共 / 家庭Qd？ 登录名] • str（ID） • "登录类型] • str(
+        身份)
+    如果奥斯.路径。伊斯迪尔（"饼干"）是假的：
+        奥斯.姆克迪尔（"饼干")
+    如果奥斯.路径。伊斯迪尔（'饼干/' + str（ID）是假的：
+        奥斯.mkdir（"饼干/" + 斯特尔（ID ）))
+    cookie_file = "饼干/ " • str（ID） • "/饼干.txt"
+    打开（cookie_file， "w+"） 。关闭()
+    饼干 = 饼干。莫齐拉库克贾尔（cookie_file)
+    饼干 + 乌利布。请求。HTTP饼干处理器（饼干） # 处理方法 ， 包括饼干处理器
+    开瓶器 = 乌利布。请求。build_opener（饼干） # # 问题开具器
+    请求 = 乌利布。请求。请求（网址=网址)
+    里斯 = 开瓶器。打开（请求）)
+    饼干。保存（ignore_discard=真实， ignore_expires=真实)
+    如果验证（饼干）是真的：
+        返回
+    其他：
+        打印)
+        日志。写作（"文" + " \n])
+        返回"错误"
 
 
-def verify(cookie):
-    url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/public/xslby'
-    cookies = urllib.request.HTTPCookieProcessor(cookie)
-    opener = urllib.request.build_opener(cookies)
-    request = urllib.request.Request(url=url, method='POST')
-    res = opener.open(request)
-    info_html = res.read().decode()
-    if '学生签到' not in info_html:
-        return False
-    if sign_history(cookie=cookie, check_exit=True):
-        print(str(name) + str(ID) + '检测成功！')
-        log.write('COOKIE OK' + '\n')
-    else:
-        print(str(ID) + '没有查询到历史签到记录，请签到一次后再使用本脚本,或者使用另一种签到模式')
-        log.write('没有签到历史' + '\n')
-        cookie_file_operation(delete=True)
-        return 'ERROR'
-    return True
+def 验证（饼干）：
+    url = "https://fxgl.jx.edu.cn/" = 斯特 （学校） • "/公共/ xslby"
+    饼干 + 乌利布。请求。赫特普饼干处理器（饼干)
+    开瓶器 = 乌利布。请求。build_opener（饼干）)
+    请求 = 乌利布。请求。请求（url=url，方法="POST")
+    里斯 = 开瓶器。打开（请求）)
+    info_html = 里斯。阅读（） 。解码()
+    如果"未"在info_html：
+        返回错误
+    如果sign_history（饼干+饼干， check_exit=真实）：
+        打印（斯特尔 （名称） + 斯特尔（ID） • "国家！)
+        日志。写（"库奇好" = " \n])
+    其他：
+        打印（完）  )
+        日志。写（'卡德， 出入' + \n')
+        cookie_file_operation（删除=真实)
+        返回"错误"
+    返回真实
 
 
-def is_sign(cookie):
-    url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/studentQd/studentIsQd'
-    cookies = urllib.request.HTTPCookieProcessor(cookie)
-    opener = urllib.request.build_opener(cookies)
-    request = urllib.request.Request(url=url, method='POST')
-    res = opener.open(request)
-    info_json = res.read().decode()
-    res_dic = json.loads(info_json)
-    if res_dic['data'] == 1:
-        print('今天已经签到啦')
-        log.write('已经签到' + '\n')
-        return True
-    else:
-        print('开始签到')
-        log.write('开始签到' + '\n')
-        return False
+is_sign （饼干）：
+    url = "https://fxgl.jx.edu.cn/" = 斯特（学校） • "/ 学生问题 / 学生问题"
+    饼干 + 乌利布。请求。赫特普饼干处理器（饼干)
+    开瓶器 = 乌利布。请求。build_opener（饼干）)
+    请求 = 乌利布。请求。请求（url=url，方法="POST")
+    里斯 = 开瓶器。打开（请求）)
+    info_json = 里斯。阅读（） 。解码()
+    res_dic = 杰森。负载（info_json)
+    如果res_dic["数据"=  =1：
+        打印（"，包括)
+        日志。写（"文科" = "n")
+        返回真实
+    其他：
+        打印（"打印")
+        日志。写（'，包括'  = \n])
+        返回错误
 
 
-def sign_history(cookie, check_exit=False):
-    if check_exit is False and signType == 1:
-        global lng, lat, zddlwz
-        construction_post(lng, lat, zddlwz)
-    url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/studentQd/pageStudentQdInfoByXh'
-    cookies = urllib.request.HTTPCookieProcessor(cookie)
-    opener = urllib.request.build_opener(cookies)
-    request = urllib.request.Request(url=url, method='POST')
-    res = opener.open(request)
-    info_json = res.read().decode()
-    try:
-        res_dic = json.loads(info_json)
-        last_dic = res_dic['data']['list'][0]
-        global name
-        try:
-            name = last_dic['xm']
-        except NameError:
-            name = ''
-        log.write('NAME' + name + '\n')
-        if check_exit:
-            return True
-        else:
-            construction_post(last_dic['lng'], last_dic['lat'], last_dic['zddlwz'])
-            return False
-    except json.decoder.JSONDecodeError:
-        if check_exit:
-            return False
-        else:
-            print('无历史签到')
-            log.write('无历史签到' + '\n')
+def sign_history（饼干， check_exit=错误）：
+    如果check_exit是假的，并签署类型 =1： 
+        全球 lng，拉特，兹德卢兹
+        construction_post（lng，拉特，兹德卢兹)
+    url = "https://fxgl.jx.edu.cn/" = 斯特（学校） • "/ 学生问题 / 页面学生问题 / 学生问题 #
+    饼干 + 乌利布。请求。赫特普饼干处理器（饼干)
+    开瓶器 = 乌利布。请求。build_opener（饼干）)
+    请求 = 乌利布。请求。请求（url=url，方法="POST")
+    里斯 = 开瓶器。打开（请求）)
+    info_json = 里斯。阅读（） 。解码()
+    尝试：
+        res_dic = 杰森。负载（info_json)
+        last_dic = res_dic["数据"["列表]0]
+        全球名称
+        尝试：
+            名称 = last_dic="xm"]
+        除姓名外：
+            名字 = ''
+        日志。写（"名称" = 名称 ="n")
+        如果check_exit：
+            返回真实
+        其他：
+            construction_post（last_dic[lng]， last_dic[lat]， last_dic[兹德卢兹]])
+            返回错误
+    除了杰森解码器。杰森德科德埃罗：
+        如果check_exit：
+            返回错误
+        其他：
+            打印（"10")
+            日志。写（'国家， 如果） -  \n])
 
 
-def cookie_file_operation(cookie=None, delete=False):
-    cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
-    if delete:
-        os.remove(cookie_file)
-        log.write('删除cookie' + '\n')
-        return
-    if os.path.isfile(cookie_file):
-        log.write('cookie文件存在' + '\n')
-        try:
-            cookie.load(cookie_file, ignore_discard=True, ignore_expires=True)
-            log.write('cookie文件加载成功' + '\n')
-        except http.cookiejar.LoadError:
-            log.write('cookie文件加载失败' + '\n')
-            return False
-        return True
-    else:
-        return False
+def cookie_file_operation（饼干=无，删除=错误）：
+    cookie_file = "饼干/ " • str（ID） • "/饼干.txt"
+    如果删除：
+        奥斯.删除（cookie_file)
+        日志。写（'饼干' + ' \n')
+        返回
+    如果奥斯.路径。（cookie_file ）：
+        日志。写（'饼干， ' - \n])
+        尝试：
+            饼干。负载（cookie_file， ignore_discard=真实， ignore_expires=真实)
+            日志。写（'饼干， ' \ n')
+        除了饼干。负载器：
+            日志。写（'饼干， 中性' = \n')
+            返回错误
+        返回真实
+    其他：
+        返回错误
 
 
-def construction_post(lng1, lat1, address):
-    global lng, lat, zddlwz, signPostInfo
-    if signType == 0:
-        # 随机偏移1m
-        log.write('定位 ' + str(lng1) + '，' + str(lat1) + '，' + str(address) + '\n')
-        lng = round(float(lng1) + random.uniform(-0.000010, +0.000010), 6)
-        lat = round(float(lat1) + random.uniform(-0.000010, +0.000010), 6)
-        zddlwz = address
-    else:
-        # 随机偏移11m
-        log.write('定位 ' + str(lng) + '，' + str(lat) + '，' + str(zddlwz) + '\n')
+def construction_post（lng1， lat1，地址）：
+    全球lng，拉特，兹德卢兹，标志邮报
+    如果签名类型 = 0：
+        * 1m
+        日志。写（'维格' =斯特（lng1）  = '， ' str （lat1） = '， ' str （地址） = \n])
+        lng =圆形（浮动（lng1） = 随机。制服（-0.000010， +0.000010）， 6)
+        拉特= 圆（浮动（lat1） = 随机。制服（-0.000010， +0.000010）， 6)
+        兹德卢兹 » 地址
+    其他：
+        * 0.
+        日志。写（'维格' =斯特尔（lng） [ '， ' 斯特尔（拉特） [ '， ' 斯特（zdlwz） = \n')
         lng = round(float(lng) + random.uniform(-0.000100, +0.000100), 6)
         lat = round(float(lat) + random.uniform(-0.000100, +0.000100), 6)
         address = zddlwz
@@ -426,7 +426,7 @@ if __name__ == "__main__":
         log.write(str(nowtime) + ':' + str(yourID) + '签到结束\n')
         print('\n\n\n')
         statistics(return_state)
-    else:
+    其他：
         for signID in IDList:
             print(str(nowtime) + ':' + signID + '开始')
             nowtime = datetime.datetime.now()
