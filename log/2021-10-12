@@ -1,0 +1,121 @@
+2021-10-12 05:29:43.186109
+历史定位签到模式
+多人签到模式T2020211164,T2020211149
+当前IP：13.64.61.159,
+
+ 美国Microsoft公司
+
+系统时间：2021-10-12 05:29:47
+UTC时间：2021-10-12 06:29:43
+北京时间：2021-10-12 13:29:43
+北京时间与系统时间误差：7:59:55.002055
+2021-10-12 05:29:47.998057:T2020211164签到开始
+NAME张昊洋
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+NAME张昊洋
+COOKIE OK
+已经签到
+2021-10-12 05:30:49.621059:T2020211164签到结束
+2021-10-12 05:30:49.778092:T2020211149签到开始
+NAME邹志文
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+NAME邹志文
+COOKIE OK
+已经签到
+2021-10-12 05:31:41.912682:T2020211149签到结束
+2人全部签到成功!
+SERVER发送成功：{"errcode":0,"errmsg":"ok","msgid":2087495593387425792}
+2021-10-12 05:31:45.104996程序结束
+######################################################################
+
+
+
+
+2021-10-12 09:42:08.892885
+历史定位签到模式
+多人签到模式T2020211164,T2020211149
+当前IP：40.118.191.53,
+
+ 美国加利福尼亚州圣克拉拉Microsoft数据中心
+
+系统时间：2021-10-12 09:42:09
+UTC时间：2021-10-12 10:42:08
+北京时间：2021-10-12 17:42:08
+北京时间与系统时间误差：7:59:58.376473
+2021-10-12 09:42:09.623598:T2020211164签到开始
+cookie文件存在
+cookie文件加载成功
+NAME张昊洋
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-10-12 09:43:05.437395:T2020211164签到结束
+2021-10-12 09:43:05.483223:T2020211149签到开始
+cookie文件存在
+cookie文件加载成功
+NAME邹志文
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+已经签到
+2021-10-12 09:43:51.316897:T2020211149签到结束
+2人全部签到成功!
+SERVER发送成功：{"errcode":0,"errmsg":"ok","msgid":2087749419210178564}
+2021-10-12 09:43:54.322645程序结束
+######################################################################
+
+
+
+
+2021-10-12 18:48:58.443336
+历史定位签到模式
+多人签到模式T2020211164,T2020211149
+当前IP：13.64.49.181,
+
+ 美国Microsoft公司
+
+系统时间：2021-10-12 18:49:03
+UTC时间：2021-10-12 19:48:58
+北京时间：2021-10-13 02:48:58
+北京时间与系统时间误差：7:59:54.205285
+2021-10-12 18:49:03.794773:T2020211164签到开始
+cookie文件存在
+cookie文件加载成功
+NAME张昊洋
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+NAME张昊洋
+定位 115.786598，28.65636，江西省南昌市
+{"status":0,"result":{"location":{"lng":115.7980701509464,"lat":28.65945925717513},"formatted_address":"江西省南昌市红谷滩区S49(枫生快速路)","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"南昌市","city_level":2,"district":"红谷滩区","town":"","town_code":"","adcode":"360113","street":"S49(枫生快速路)","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":163}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%8D%97%E6%98%8C%E5%B8%82&district=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&street=%E5%8D%97%E6%98%8C%E5%B8%82&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%8D%97%E6%98%8C%E5%B8%82&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%8D%97%E6%98%8C%E5%B8%82&bdistrict=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&bstreet=%E5%8D%97%E6%98%8C%E5%B8%82&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%8D%97%E6%98%8C%E5%B8%82&sdistrict=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&lng=115.786595&lat=28.656368&sfby=1
+签到成功
+2021-10-12 18:50:12.104798:T2020211164签到结束
+2021-10-12 18:50:12.304636:T2020211149签到开始
+cookie文件存在
+cookie文件加载成功
+NAME邹志文
+COOKIE OK
+cookie文件存在
+cookie文件加载成功
+开始签到
+NAME邹志文
+定位 115.786597，28.656209，江西省南昌市
+{"status":0,"result":{"location":{"lng":115.79807527059542,"lat":28.65930548202179},"formatted_address":"江西省南昌市红谷滩区S49(枫生快速路)","business":"","addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江西省","city":"南昌市","city_level":2,"district":"红谷滩区","town":"","town_code":"","adcode":"360113","street":"S49(枫生快速路)","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":163}}
+province=%E6%B1%9F%E8%A5%BF%E7%9C%81&city=%E5%8D%97%E6%98%8C%E5%B8%82&district=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&street=%E5%8D%97%E6%98%8C%E5%B8%82&xszt=0&jkzk=0&jkzkxq=&sfgl=1&gldd=&mqtw=0&mqtwxq=&zddlwz=%E6%B1%9F%E8%A5%BF%E7%9C%81%E5%8D%97%E6%98%8C%E5%B8%82&sddlwz=&bprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&bcity=%E5%8D%97%E6%98%8C%E5%B8%82&bdistrict=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&bstreet=%E5%8D%97%E6%98%8C%E5%B8%82&sprovince=%E6%B1%9F%E8%A5%BF%E7%9C%81&scity=%E5%8D%97%E6%98%8C%E5%B8%82&sdistrict=%E7%BA%A2%E8%B0%B7%E6%BB%A9%E5%8C%BA&lng=115.7866&lat=28.656214&sfby=1
+签到成功
+2021-10-12 18:51:08.667663:T2020211149签到结束
+2人全部签到成功!
+SERVER发送成功：{"errcode":0,"errmsg":"ok","msgid":2088300333054623744}
+2021-10-12 18:51:10.909445程序结束
+######################################################################
+
+
+
+

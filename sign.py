@@ -5,14 +5,14 @@ signs = 0
 
 # 单人签到学号，部分学校可能用一卡通号等代替。可以到 https://fxgl.jx.edu.cn/你的高校代码/  自己尝试一下
 # 仅当选择单人签到，即上面signs = 0时才需要配置，否则可以忽略
-yourID = 你的学号
+yourID = T2020211149
 # 多人签到学号组，部分学校可能用一卡通号等代替。可以到  https://fxgl.jx.edu.cn/你的高校代码/   自己尝试一下
 # 仅当选择多人签到，即上面signs = 1时才需要配置，否则可以忽略，使用英语逗号 , 将每个学号分开哦，需要是同一个学校，两侧的引号别丢了
-IDs = '学号1,学号2,学号3,学号4'
+IDs = '8878787878'
 
 # 高校代码，详见GitHub项目介绍
 # 多人签到暂不支持多个学校签到（你想干嘛？）
-schoolID = 4136010403
+schoolID = 4136013423
 
 # 身份类型 0表示学生 1表示教职工
 identity = 0
@@ -29,21 +29,21 @@ signType = 0
 
 # 如果使用输入的经纬度，即上面的signType = 1的话，才需要配置，否则可以忽略
 # 经度，至少精确到小数点后6
-lng = 123.456789
+lng = 115.793205
 # 纬度，至少精确到小数点后6
-lat = 22.222222
+lat = 28.661871
 # 地址 尽量详细 包含省市区/镇，两侧的引号别丢了
-zddlwz = '你的地址'
+zddlwz = '江西省南昌市红谷滩区红角洲嘉言路699号'
 
 # ##############################用户通知数据配置#######################################
 # ##########SERVER酱配置###############
 # #SERVER酱Turbo升级版新官网 sct.ftqq.com
 # 是否开启SERVER酱通知 0表示关闭 1表示开启
-server_chan =0
+server_chan =1
 # SERVER酱sendkey，两侧的引号别丢了
 # 查看网址 sct.ftqq.com/sendkey
 # 免费版可每日发送五条推送
-sendkey = '你的key'
+sendkey = 'SCT86582TvJNTWUCZlUfSHeDXZi1xNn1A'
 
 # ##################################程序开始#########################################
 import time
@@ -431,7 +431,7 @@ if __name__ == "__main__":
             print(str(nowtime) + ':' + signID + '开始')
             nowtime = datetime.datetime.now()
             log.write(str(nowtime) + ':' + signID + '签到开始\n')
-            return_state = start(int(signID))
+            return_state = start(str(signID))
             nowtime = datetime.datetime.now()
             log.write(str(nowtime) + ':' + signID + '签到结束\n')
             print('\n\n\n')
