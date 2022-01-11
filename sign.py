@@ -1,52 +1,5 @@
-# ##############################用户数据配置#######################################
-
-# 签到模式 0表示单人签到 1表示多人签到
-signs = 0
-
-# 单人签到学号，部分学校可能用一卡通号等代替。可以到 https://fxgl.jx.edu.cn/你的高校代码/  自己尝试一下
-# 仅当选择单人签到，即上面signs = 0时才需要配置，否则可以忽略
-yourID = 你的学号
-# 多人签到学号组，部分学校可能用一卡通号等代替。可以到  https://fxgl.jx.edu.cn/你的高校代码/   自己尝试一下
-# 仅当选择多人签到，即上面signs = 1时才需要配置，否则可以忽略，使用英语逗号 , 将每个学号分开哦，需要是同一个学校，两侧的引号别丢了
-IDs = '学号1,学号2,学号3,学号4'
-
-# 高校代码，详见GitHub项目介绍
-# 多人签到暂不支持多个学校签到（你想干嘛？）
-schoolID = 4136010403
-
-# 身份类型 0表示学生 1表示教职工
-identity = 0
-
-# 是否为毕业班的学生 0表示是毕业班的学生 1表示不是毕业班的学生。
-sfby = 1
-
-# 暂不支持健康状况为异常和被隔离的健康上报，请手动提交，确保自己提交的信息真实有效。
-
-# 签到模式
-# 0表示获取前一日的签到定位（长时间签到可能会偏差较大，适合多人签到且时间跨度不长，每次签到会在上一次签到的基础上随机偏移1.1m以内，理论上连续签到一年会偏移200m左右
-# 1表示使用输入的经纬度（单人签到推荐，会在你输入的经纬度定位上随机偏移11.1m以内
-signType = 0
-
-# 如果使用输入的经纬度，即上面的signType = 1的话，才需要配置，否则可以忽略
-# 经度，至少精确到小数点后6
-lng = 123.456789
-# 纬度，至少精确到小数点后6
-lat = 22.222222
-# 地址 尽量详细 包含省市区/镇，两侧的引号别丢了
-zddlwz = '你的地址'
-
-# ##############################用户通知数据配置#######################################
-# ##########SERVER酱配置###############
-# #SERVER酱Turbo升级版新官网 sct.ftqq.com
-# 是否开启SERVER酱通知 0表示关闭 1表示开启
-server_chan =0
-# SERVER酱sendkey，两侧的引号别丢了
-# 查看网址 sct.ftqq.com/sendkey
-# 免费版可每日发送五条推送
-sendkey = '你的key'
-
 # ##################################程序开始#########################################
-import time
+import configparser
 import datetime
 import http
 import json
@@ -54,9 +7,12 @@ import os
 import random
 import re
 import ssl
+import time
 import urllib
 from http import cookiejar
 from urllib import parse
+from urllib.error import HTTPError
+
 import requests
 
 # 全局变量，保存姓名
@@ -72,19 +28,87 @@ count = [0, 0, 0]
 # 日期
 today = datetime.date.today()
 # log文件
-if os.path.isdir('log') is False:
+if os.path.isdir('log') == False:
     os.mkdir('log')
 log = open('log/' + str(today), 'a+')
 pointer = log.tell()
-IDList = IDs.split(',')
+
+
+# 异常类
+class NoConf(Exception):
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name + '项目未配置'
+
+
+class ShowErr(Exception):
+    def __str__(self):
+        return '项目出错，请查看程序输出'
+
+
+# 读取配置文件
+try:
+    # 判断配置文件是否存在
+    if os.path.exists("SignConfig.cfg") or os.path.exists("SignConfigTemplate.cfg"):
+        if os.path.exists("SignConfig.cfg"):
+            print("读取配置文件...")
+        else:
+            print("获取不到配置文件，请修改配置模板文件SignConfigTemplate.cfg并重命名为SignConfig.cfg")
+            raise ShowErr()
+    else:
+        print("配置文件和配置模板文件均已丢失，请从github从新获取")
+        raise ShowErr()
+    # 生成config对象
+    conf = configparser.ConfigParser()
+    conf.sections()
+    # 用config对象读取配置文件
+    conf.read("SignConfig.cfg")
+    # 以列表形式返回所有的section
+    sections = conf.sections()
+    # ##############################用户数据配置#######################################
+    signs = conf["UserData"].getint("signs", 0)
+    if signs == 0:
+        yourID = conf["UserData"].get("yourID", "null")
+        if yourID == "null" or yourID == "你的学号":
+            raise NoConf('yourID')
+    else:
+        IDs = conf["UserData"].get("IDs", "null")
+        if IDs == "null" or IDs == '学号1,学号2,学号3,学号4':
+            raise NoConf('IDs')
+        else:
+            IDList = IDs.split(',')
+    schoolID = conf["UserData"].get("schoolID", 'null')
+    if schoolID == 'null' or schoolID == '你的高校代码':
+        raise NoConf('schoolID')
+    identity = conf["UserData"].getint("identity", 0)
+    sfby = conf["UserData"].getint("sfby", 1)
+    signType = conf["UserData"].getint("signType", 0)
+    if signType == 1:
+        lng = conf["UserData"].getfloat("lng", 0.0)
+        lat = conf["UserData"].getfloat("lat", 0.0)
+        zddlwz = conf["UserData"].get("IDs", "null")
+        if lng == 0.0 or lat == 0.0 or zddlwz == "null" or lng == 123.456789 or lat == 22.222222 or zddlwz == "你的地址":
+            raise NoConf('定位签到数据')
+    server_chan = conf["NotificationData"].getint("server_chan", 0)
+    if server_chan == 1:
+        sendkey = conf["NotificationData"].get("sendkey", "null")
+        if sendkey == "null" or sendkey == '你的key':
+            raise NoConf('sendkey')
+except Exception as e:
+    log.write('程序出错：' + str(e) + '\n')
+    print(e)
+    exit()
 
 
 def login():
     url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/public/homeQd?loginName=' + str(ID) + '&loginType=' + str(
         identity)
-    if os.path.isdir('cookie') is False:
+    log.write('尝试登录：' + url + '\n')
+    if os.path.isdir('cookie') == False:
         os.mkdir('cookie')
-    if os.path.isdir('cookie/' + str(ID)) is False:
+    if os.path.isdir('cookie/' + str(ID)) == False:
         os.mkdir('cookie/' + str(ID))
     cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
     open(cookie_file, 'w+').close()
@@ -92,9 +116,16 @@ def login():
     cookies = urllib.request.HTTPCookieProcessor(cookie)  # 创建一个处理cookie的handler
     opener = urllib.request.build_opener(cookies)  # 创建一个opener
     request = urllib.request.Request(url=url)
-    res = opener.open(request)
+    try:
+        res = opener.open(request)
+    except HTTPError:
+        print('登陆出错，大概率是你的学号或者学校ID配置错了！！')
+        exit()
+    except UnicodeEncodeError:
+        print('登陆出错，学号包含中文！！')
+        exit()
     cookie.save(ignore_discard=True, ignore_expires=True)
-    if verify(cookie) is True:
+    if verify(cookie) == True:
         return
     else:
         print('登陆有些不对劲，程序出错，请将完整输出提交issuer')
@@ -141,7 +172,7 @@ def is_sign(cookie):
 
 
 def sign_history(cookie, check_exit=False):
-    if check_exit is False and signType == 1:
+    if check_exit == False and signType == 1:
         global lng, lat, zddlwz
         construction_post(lng, lat, zddlwz)
     url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/studentQd/pageStudentQdInfoByXh'
@@ -278,13 +309,13 @@ def start(signID):
     global ID
     ID = signID
     cookie = http.cookiejar.MozillaCookieJar()
-    if cookie_file_operation(cookie=cookie) is False:
+    if cookie_file_operation(cookie=cookie) == False:
         print('登陆数据文件丢失或不存在，尝试重新获取登陆数据')
         if login() == 'ERROR':
             return False
         cookie_file_operation(cookie=cookie)
     verify_code = verify(cookie)
-    if verify_code is False:
+    if verify_code == False:
         print('尝试重新获取登陆数据')
         if login() == 'ERROR':
             return False
@@ -293,7 +324,7 @@ def start(signID):
         return False
     else:
         print('登陆数据检测成功')
-    if is_sign(cookie) is False:
+    if is_sign(cookie) == False:
         sign(cookie=cookie)
         return True
     else:
@@ -302,11 +333,11 @@ def start(signID):
 
 def statistics(statue):
     global message
-    if statue is False:
+    if statue == False:
         message = message + name + " " + str(ID) + " 打卡错误！\n"
         count[0] = count[0] + 1
         return
-    if statue is True:
+    if statue == True:
         message = message + name + " " + str(ID) + " 打卡成功！\n"
         count[1] = count[1] + 1
         return
@@ -347,7 +378,7 @@ def sending():
 
 def send_serverchan(title):
     global message
-    url = 'https://sctapi.ftqq.com/'+sendkey+'.send'
+    url = 'https://sctapi.ftqq.com/' + sendkey + '.send'
     log.seek(pointer, 0)
     f = log.read()
     message = message + "\n###本次签到日志如下###\n" + str(f)
@@ -358,11 +389,11 @@ def send_serverchan(title):
     if serverdata["data"]["error"] == "SUCCESS":
         pushid = serverdata["data"]["pushid"]
         readkey = serverdata["data"]["readkey"]
-        url = "https://sctapi.ftqq.com/push?id=" + pushid + "&readkey=" + readkey;
+        url = "https://sctapi.ftqq.com/push?id=" + pushid + "&readkey=" + readkey
         i = 1
         wxstatus = ""
         wxok = False
-        while i < 60 and wxok is False:
+        while i < 60 and wxok == False:
             time.sleep(0.25)
             res = requests.get(url=url)
             serverstatusdata = json.loads(res.text)

@@ -9,25 +9,28 @@ jobs:
   sign:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout #同步仓库
-      uses: actions/checkout@master
-    - name: Set up Python #安装python
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.9
-    - name: Install requests #安装requests
-      run: |
-        pip install requests
-    - name: Do sign #开始签到
-      run: | 
-        python sign.py
-    - name: Commit #上传log到仓库
-      run: |
-        git config --global user.email AutoupdateRobot@email.com
-        git config --global user.name AutoupdateRobot
-        git add .
-        git commit -m "update new sign" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout #同步仓库
+        uses: actions/checkout@master
+      - name: Set up Python #安装python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10
+      - name: Install requests #安装requests
+        run: |
+          pip install requests
+      - name: Install configparser #安装configparser
+        run: |
+          pip install configparser
+      - name: Do sign #开始签到
+        run: |
+          python sign.py
+      - name: Commit #上传log到仓库
+        run: |
+          git config --global user.email AutoupdateRobot@email.com
+          git config --global user.name AutoupdateRobot
+          git add .
+          git commit -m "update new sign" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
