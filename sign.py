@@ -27,11 +27,6 @@ message = "AutoZFBXiaoYuanFangYiSign打卡通知：\n"
 count = [0, 0, 0]
 # 日期
 today = datetime.date.today()
-# log文件
-if os.path.isdir('log') == False:
-    os.mkdir('log')
-log = open('log/' + str(today), 'a+')
-pointer = log.tell()
 
 
 # 异常类
@@ -97,7 +92,7 @@ try:
         if sendkey == "null" or sendkey == '你的key':
             raise NoConf('sendkey')
 except Exception as e:
-    log.write('程序出错：' + str(e) + '\n')
+    # log.write('程序出错：' + str(e) + '\n')
     print(e)
     exit()
 
@@ -106,11 +101,11 @@ def login():
     url = 'https://fxgl.jx.edu.cn/' + str(schoolID) + '/public/homeQd?loginName=' + str(ID) + '&loginType=' + str(
         identity)
     log.write('尝试登录：' + url + '\n')
-    if os.path.isdir('cookie') == False:
-        os.mkdir('cookie')
-    if os.path.isdir('cookie/' + str(ID)) == False:
-        os.mkdir('cookie/' + str(ID))
-    cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
+    if os.path.isdir(bashDir + 'cookie') == False:
+        os.mkdir(bashDir + 'cookie')
+    if os.path.isdir(bashDir + 'cookie/' + str(ID)) == False:
+        os.mkdir(bashDir + 'cookie/' + str(ID))
+    cookie_file = bashDir + 'cookie/' + str(ID) + '/cookie.txt'
     open(cookie_file, 'w+').close()
     cookie = http.cookiejar.MozillaCookieJar(cookie_file)
     cookies = urllib.request.HTTPCookieProcessor(cookie)  # 创建一个处理cookie的handler
@@ -204,7 +199,7 @@ def sign_history(cookie, check_exit=False):
 
 
 def cookie_file_operation(cookie=None, delete=False):
-    cookie_file = 'cookie/' + str(ID) + '/cookie.txt'
+    cookie_file = bashDir + 'cookie/' + str(ID) + '/cookie.txt'
     if delete:
         os.remove(cookie_file)
         log.write('删除cookie' + '\n')
@@ -302,7 +297,6 @@ def exit_program():
     log.write(
         '######################################################################' + '\n' + '\n' + '\n' + '\n' + '\n')
     log.close()
-    exit(0)
 
 
 def start(signID):
@@ -444,7 +438,7 @@ def initialization():
     log.write('北京时间与系统时间误差：' + str(ttime - datetime.datetime.now()) + '\n')
 
 
-if __name__ == "__main__":
+def DoSign():
     ssl._create_default_https_context = ssl._create_unverified_context
     initialization()
     nowtime = datetime.datetime.now()
@@ -469,3 +463,25 @@ if __name__ == "__main__":
             statistics(return_state)
             time.sleep(float(random.uniform(0, 0.25)))
     exit_program()
+
+
+# 普通运行入口
+if __name__ == "__main__":
+    global bashDir, pointer, log
+    bashDir = "./"
+    if os.path.isdir('log') == False:
+        os.mkdir('log')
+    log = open('log/' + str(today), 'a+')
+    pointer = log.tell()
+    DoSign()
+
+
+def cloudFun():
+    global bashDir, pointer, log
+    log.close('/tmp/log/')
+    os.mkdir('log')
+    log = open('/tmp/log/' + str(today), 'a+')
+    bashDir = "/tmp/"
+    pointer = log.tell()
+    DoSign()
+    return "云函数运行成功"
