@@ -476,10 +476,10 @@ if __name__ == "__main__":
     DoSign()
 
 
-def cloudFun():
+def cloudFun(event, context):
     global bashDir, pointer, log
-    log.close('/tmp/log/')
-    os.mkdir('log')
+    if os.path.isdir('/tmp/log/') == False:
+        os.mkdir('/tmp/log/')
     log = open('/tmp/log/' + str(today), 'a+')
     bashDir = "/tmp/"
     pointer = log.tell()
