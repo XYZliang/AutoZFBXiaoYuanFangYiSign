@@ -225,7 +225,7 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
    >
    > ![image-20220112154459712](README/image-20220112154459712.png)
 
-   ![FireShot Capture 009 - 概览 - Serverless - 控制台 - console.cloud.tencent.com](README/FireShot Capture 009 - 概览 - Serverless - 控制台 - console.cloud.tencent.com.png)
+   ![info](README/info.png)
 
 6. 点击完成，完成创建，云函数部署完毕
 
