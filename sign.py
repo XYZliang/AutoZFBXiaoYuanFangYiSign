@@ -83,7 +83,7 @@ try:
     if signType == 1:
         lng = conf["UserData"].getfloat("lng", 0.0)
         lat = conf["UserData"].getfloat("lat", 0.0)
-        zddlwz = conf["UserData"].get("IDs", "null")
+        zddlwz = conf["UserData"].get("zddlwz", "null")
         if lng == 0.0 or lat == 0.0 or zddlwz == "null" or lng == 123.456789 or lat == 22.222222 or zddlwz == "你的地址":
             raise NoConf('定位签到数据')
     server_chan = conf["NotificationData"].getint("server_chan", 0)
