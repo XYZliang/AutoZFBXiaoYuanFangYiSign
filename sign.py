@@ -37,7 +37,6 @@ class NoConf(Exception):
     def __str__(self):
         return self.name + '项目未配置'
 
-
 class ShowErr(Exception):
     def __str__(self):
         return '项目出错，请查看程序输出'
@@ -83,11 +82,11 @@ try:
     if signType == 1:
         lng = conf["UserData"].getfloat("lng", 0.0)
         lat = conf["UserData"].getfloat("lat", 0.0)
-        zddlwz = conf["UserData"].get("IDs", "null")
+        zddlwz = conf["UserData"].get("zddlwz", "null")
         if lng == 0.0 or lat == 0.0 or zddlwz == "null" or lng == 123.456789 or lat == 22.222222 or zddlwz == "你的地址":
             raise NoConf('定位签到数据')
-    server_chan = conf["NotificationData"].getint("server_chan", 0)
-    if server_chan == 1:
+    notification = conf["NotificationData"].getint("notification", 0)
+    if notification == 1 or notification == 2:
         sendkey = conf["NotificationData"].get("sendkey", "null")
         if sendkey == "null" or sendkey == '你的key':
             raise NoConf('sendkey')
@@ -354,8 +353,10 @@ def sendings():
     else:
         title = "部分签到成功：" + str(count[1] + count[2]) + "人签到成功，" + str(count[0]) + "人失败！！！！！"
     log.write(str(title) + '\n')
-    if server_chan == 1:
-        send_serverchan(str(title))
+    if notification == 1:
+        sendServerChan(str(title))
+    elif notification == 2:
+        sendPushDeer(title)
     return
 
 
@@ -365,12 +366,14 @@ def sending():
     else:
         title = str(name) + str(ID) + "签到成功！"
     log.write(str(title) + '\n')
-    if server_chan == 1:
-        send_serverchan(str(title))
+    if notification == 1:
+        sendServerChan(str(title))
+    elif notification == 2:
+        sendPushDeer(title)
     return
 
 
-def send_serverchan(title):
+def sendServerChan(title):
     global message
     url = 'https://sctapi.ftqq.com/' + sendkey + '.send'
     log.seek(pointer, 0)
@@ -402,6 +405,26 @@ def send_serverchan(title):
             print("SERVER发送失败")
             log.write("SERVER发送失败：" + wxstatus + '\n')
     return
+
+
+def sendPushDeer(title):
+    global message
+    url = 'https://api2.pushdeer.com/message/push?pushkey=' + sendkey + '&text='
+    log.seek(pointer, 0)
+    f = log.read()
+    message = title + message + "\n---本次签到日志如下---\n" + str(f)
+    message = message.replace("\n", "%0A")
+    url = url + message
+    print(url)
+    res = requests.get(url)
+    serverdata = json.loads(res.text)
+    serverdata = json.loads(serverdata['content']['result'][0])
+    if serverdata['success'] == 'ok':
+        print("PushDeer发送成功")
+        log.write("PushDeer发送成功：" + res.text + '\n')
+    else:
+        print("SERVER发送失败")
+        log.write("PushDeer发送失败：" + res.text + '\n')
 
 
 def initialization():

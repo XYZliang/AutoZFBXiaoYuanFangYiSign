@@ -68,10 +68,9 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
    >
    > 使用输入的经纬度，单人签到推荐，会在你输入的经纬度定位上随机偏移11.1m以内
 
-8. 如果使用输入的经纬度模式，即上一步中的参数 `signType = 1`,则还需要配置34行和36行的经纬度、38行的地址，建议在[*
-   百度拾取坐标系统*](http://api.map.baidu.com/lbsapi/getpoint/index.html)找到自己的位置。经度是较大的那个。
-
-9. 如果需要server酱推送，可在第38-46行了解详情并配置
+8. 如果使用输入的经纬度模式，即上一步中的参数 `signType = 1`,则还需要配置34行和36行的经纬度、38行的地址，建议在[*百度拾取坐标系统*](http://api.map.baidu.com/lbsapi/getpoint/index.html)找到自己的位置。经度是较大的那个。
+   
+9. 如果需要签到通知推送，可在39-51行了解详情并配置
 
 9. 将BigStudyConfigTemplate.cfg重命名为BigStudyConfig.cfg
 
@@ -241,7 +240,7 @@ Python版本 江西省普通高等学校 校园防疫 健康签到 自动签到�
 
 9. 如果配置的定时函数未运行，请在触发管理里检查你的cron表达式。
 
-10. 如果配置的定时函数出错，可以再日志查询里查看历史允许的情况。如果有配置server酱，运行成功在手机上会有提示。
+10. 如果配置的定时函数出错，可以再日志查询里查看历史允许的情况。如果有配置通知推送，运行成功在手机上会有提示。
 
     ![image-20220112161123876](README/image-20220112161123876.png)
 
@@ -383,6 +382,14 @@ python版本：Python 3.10
 - 2022.1.12
 
   增加详细的腾讯云云函数教程，修复几个云函数的错误
+  
+- 2022.1.27
+
+  修复[一个自己的疏忽导致的配置文件读取错误](https://github.com/XYZliang/AutoZFBXiaoYuanFangYiSign/issues/31)，[最终导致定位签到出错](https://github.com/XYZliang/AutoZFBXiaoYuanFangYiSign/issues/36)
+  
+  加入对[PushDeer（SERVER酱牵头众筹开发的开放源码的无App轻量推送服务）](https://github.com/easychen/pushdeer)推送的支持，现已支持IOS15、macOS设备的原生推送通知，后续还会支持iOS14以及安卓轻应用通知推送
+  
+  将cookie和log两个涉及隐私的文件加入了gitignore，防止误push了个人信息
 
 # 💣 免责声明
 
