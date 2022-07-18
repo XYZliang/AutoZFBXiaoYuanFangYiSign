@@ -1,3 +1,5 @@
+# 注意：自7月7号开始系统更换了新接口，已经找到解决方法，会在近期更新脚本，可以先使用这位大神的脚本：**[School_VirusMark](https://github.com/zouhy2001/School_VirusMark)**
+
 # 🏫 AutoZFBXiaoYuanFangYiSign
 
 > # 本仓库内容仅供学习参考，请不要依赖自动签到，确保自己提交的信息真实有效。参与抗疫人人有责！！！！！！！
